@@ -5,6 +5,19 @@
     <title>{{ title }}</title>
 </head>
 <body>
+<p>{{ mainmenu|join:" | " }}</p>
 <p>Hello customer!!!</p>
+<ul>
+    {% for i in DB_data %}
+    {% if i.is_published %}
+        <h2>{{ i.good }}</h2>
+        <h4><p>Description:</p>{{ i.describe }}</h4>
+        <h3>Price: {{ i.price }}</h3>
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+    {%endif%}
+    {% endfor %}
+</ul>
 </body>
 </html>
