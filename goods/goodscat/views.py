@@ -10,7 +10,12 @@ db_data=[
 def index(request):
     context = {
         "title" : "rozetka.com",
-        "mainmenu" : ["about site", "add goods", "futher information", "log in"],
+        "mainmenu" : [
+        {"title":"about site","url":"about"},
+        {"title":"add goods","url":"addgood"},
+        {"title":"futher information","url":"finfo"},
+        {"title":"log in","url":"log"},
+        ],
         "DB_data" : db_data,
     }
     return render(request, "goodscat/index.html", context=context)
@@ -20,5 +25,17 @@ def about(request):
         "title" : "foxtrot.com",
     }
     return render(request, "goodscat/about.html", context=context)
+
+def addgood(request):
+    return HttpResponse("this func not ready yet")
+
+def finfo(request):
+    context={
+        "title":"about us"
+    }
+    return render(request,"goodscat/finfo.html" ,context=context)
+
+def log(request):
+    return HttpResponse("this func coming soon")
 def nfound(request, exception):
     return HttpResponseNotFound("not found page")
