@@ -23,6 +23,12 @@ def index(request):
 def about(request):
     context = {
         "title" : "foxtrot.com",
+        "mainmenu": [
+            {"title": "about site", "url": "about"},
+            {"title": "add goods", "url": "addgood"},
+            {"title": "futher information", "url": "finfo"},
+            {"title": "log in", "url": "log"},
+        ],
     }
     return render(request, "goodscat/about.html", context=context)
 
@@ -31,7 +37,13 @@ def addgood(request):
 
 def finfo(request):
     context={
-        "title":"about us"
+        "title":"about us",
+        "mainmenu": [
+            {"title": "about site", "url": "about"},
+            {"title": "add goods", "url": "addgood"},
+            {"title": "futher information", "url": "finfo"},
+            {"title": "log in", "url": "log"},
+        ],
     }
     return render(request,"goodscat/finfo.html" ,context=context)
 

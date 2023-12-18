@@ -5,11 +5,7 @@
     <title>{{ title }}</title>
 </head>
 <body>
-<p>
-    {% for i in mainmenu %}
-        <a href="{% url i.url %}">{{ i.title }}</a>{% if not forloop.last %} | {% endif %}
-    {% endfor %}
-</p>
+{% include 'goodscat/includes/hyperlink.html' %}
 <p>Hello customer!!!</p>
 <ul>
     {% for i in DB_data %}
