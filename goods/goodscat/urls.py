@@ -10,4 +10,5 @@ urlpatterns = [
     path('addgoods/', addgood, name="addgood"),
     path('finfo/', finfo, name="finfo"),
     path('log/', log, name="log"),
+    path('categories/', categories, name="cat"),
 ]

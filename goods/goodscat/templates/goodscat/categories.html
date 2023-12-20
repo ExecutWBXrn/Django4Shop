@@ -1,0 +1,21 @@
+{% load static %}
+{% load cat_tag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'goodscat/css/style.css' %}">
+    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'goodscat/img/rozetkaicon.png' %}">
+</head>
+<body>
+{% include 'goodscat/includes/hyperlink.html' %}
+{% cat as cat %}
+{% for i in cat %}
+<p>{{ i.title }}</p>
+{% if forloop.last %}
+<p>cat counter: {{ i.id }}</p>
+{% endif %}
+{% endfor %}
+</body>
+</html>
