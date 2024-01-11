@@ -7,3 +7,9 @@ class Goods(models.Model):
     is_published = models.BooleanField(default=True)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.good
+
+    def __repr__(self):
+        return f"\n{self.good}\n{self.describe}"
