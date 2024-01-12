@@ -16,6 +16,7 @@
         <h2>{{ i.good }}</h2>
         <h4><p>Description:</p>{{ i.describe }}</h4>
         <h3>Price: {{ i.price }}</h3>
+        <p>Further information: <a href="{{ i.get_absolute_url }}">click up</a></p>
         {% if not forloop.last %}
             <hr>
         {% endif %}

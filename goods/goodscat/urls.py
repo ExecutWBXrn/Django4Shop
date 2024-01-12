@@ -11,4 +11,5 @@ urlpatterns = [
     path('finfo/', finfo, name="finfo"),
     path('log/', log, name="log"),
     path('categories/', categories, name="cat"),
+    path('goodinfo/<slug:good_slug>', furtherinfo, name="goodinfo"),
 ]
