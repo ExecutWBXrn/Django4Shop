@@ -1,0 +1,35 @@
+{% load static %}
+{% load cat_tag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'goodscat/css/style.css' %}">
+    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'goodscat/img/rozetkaicon.png' %}">
+</head>
+<body>
+{% include 'goodscat/includes/hyperlink.html' %}
+{% cat as cat %}
+{% for i in cat %}
+{% if i.slug == cat_slug %}
+<p>THIS IS GOODS WITH TAGS THAT CONTAIN {{i.name|upper}}</p>
+<ul>
+    {% for j in DB_data %}
+    {% if i.id == j.cat_id %}
+    {% if j.is_published %}
+        <h2>{{ j.good }}</h2>
+        <h4><p>Description:</p>{{ j.describe }}</h4>
+        <h3>Price: {{ j.price }}</h3>
+        <p>Further information: <a href="{{ j.get_absolute_url }}">click up</a></p>
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+    {% endif %}
+    {%endif%}
+    {% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+</body>
+</html>

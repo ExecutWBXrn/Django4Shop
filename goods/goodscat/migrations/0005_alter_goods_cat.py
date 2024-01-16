@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goodscat', '0004_category_goods_cat'),
+        ('goodscat', '0003_alter_goods_slug'),
     ]
 
     operations = [

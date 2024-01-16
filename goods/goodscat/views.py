@@ -1,16 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from django.template.loader import render_to_string
-from .models import Goods
+from .models import Goods, Category
 db_data=Goods.objects.all()
-
-cat_db = [
-    {"id":1, "title":"sport"},
-    {"id":2, "title":"computers"},
-    {"id":3, "title":"shoes"},
-    {"id":4, "title":"flats"},
-    {"id":5, "title":"something else"},
-]
+cat_db=Category.objects.all()
 def index(request):
     context = {
         "title" : "rozetka.com",
@@ -41,6 +34,15 @@ def categories(request):
         "title":"categories"
     }
     return render(request, "goodscat/categories.html", context=context)
+
+def dis_cat(request, cat_slug):
+    w=get_object_or_404(Category, slug=cat_slug)
+    context = {
+        "title":w.name,
+        "cat_slug":cat_slug,
+        "DB_data":db_data,
+    }
+    return render(request, "goodscat/display_cat.html", context=context)
 
 def furtherinfo(request, good_slug):
     w=get_object_or_404(Goods, slug=good_slug)
