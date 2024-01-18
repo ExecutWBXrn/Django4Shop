@@ -12,7 +12,7 @@
 {% include 'goodscat/includes/hyperlink.html' %}
 {% cat as cat %}
 {% for i in cat %}
-<a href="{% url 'dcat' i.slug %}"><p>{{ i.name }}</p></a>
+<a href="{{ i.get_absolute_url }}"><p>{{ i.name }}</p></a>
 {% if forloop.last %}
 <p>overall amount available categories: {{ i.id }}</p>
 {% endif %}
