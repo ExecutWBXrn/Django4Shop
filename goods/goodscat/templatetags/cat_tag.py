@@ -16,5 +16,6 @@ def mainmenu():
         {"title": "futher information", "url": "finfo"},
         {"title": "log in", "url": "log"},
         {"title": "categories", "url": "cat"},
+        {"title": "tags", "url": "tag_path"},
     ]
     return menu

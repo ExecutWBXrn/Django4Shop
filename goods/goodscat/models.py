@@ -3,11 +3,14 @@ from django.urls import reverse
 
 
 class Goods(models.Model):
+    class STATUS(models.IntegerChoices):
+        DRAFT = 0, "DRAFT"
+        PUBLISHED = 1, "PUBLISHED"
     good = models.CharField(max_length=255)
     describe = models.TextField(blank=True)
     price = models.IntegerField(default=None)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(choices=STATUS.choices, default=STATUS.PUBLISHED)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     cat = models.ForeignKey('Category', on_delete=models.PROTECT)
@@ -38,3 +41,6 @@ class TagPost(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("tag_tag_slug_path", kwargs={"tag_slug":self.slug})

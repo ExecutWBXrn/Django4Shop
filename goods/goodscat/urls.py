@@ -13,4 +13,6 @@ urlpatterns = [
     path('categories/', categories, name="cat"),
     path('categories/<slug:cat_slug>', dis_cat, name="dcat"),
     path('goodinfo/<slug:good_slug>', furtherinfo, name="goodinfo"),
+    path('tag/', tag, name="tag_path"),
+    path('tag/<slug:tag_slug>/', tag_tag_slug, name="tag_tag_slug_path"),
 ]
