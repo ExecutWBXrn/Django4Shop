@@ -21,6 +21,10 @@ from goodscat.views import nfound
 urlpatterns = [
     path('', include("goodscat.urls")),
     path('admin/', admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 handler404 = nfound
+
+admin.site.site_header = "Адмін панель"
+admin.site.index_title = "ExecutWBXrn's панель"
