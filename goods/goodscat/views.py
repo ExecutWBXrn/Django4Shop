@@ -28,7 +28,10 @@ def finfo(request):
     return render(request,"goodscat/finfo.html" ,context=context)
 
 def log(request):
-    return HttpResponse("this func coming soon")
+    context = {
+        "title": "log in",
+    }
+    return render(request, "goodscat/log.html", context=context)
 
 def categories(request):
     context = {

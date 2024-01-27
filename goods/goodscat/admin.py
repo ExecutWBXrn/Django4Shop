@@ -9,7 +9,10 @@ class GoodsAdmin(admin.ModelAdmin):
     list_editable = ["is_published"]
     ordering = ["time_update", "good"]
     actions = ["set_published", "set_draft"]
-
+    search_fields = ["good", "cat__name"]
+    list_filter = ["cat", "is_published"]
+    filter_horizontal = ["tags"]
+    prepopulated_fields = {"slug":("good", )}
     @admin.display(description="further information", ordering="describe")
     def brief_info(self, good: Goods):
         return f"symbols in description: {len(good.describe)}"

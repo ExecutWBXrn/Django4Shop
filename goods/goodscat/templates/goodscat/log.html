@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'goodscat/css/style.css' %}" />
+    <link type="imagen/x-icon" rel="shortcut icon" href="{% static 'goodscat/img/rozetkaicon.png' %}" />
+</head>
+<body>
+{% include 'goodscat/includes/hyperlink.html' %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p><label for="id_1">Текст: </label> <input type="text" id="id_1" name="field_name"></p>
+    <p><label for="id_2">Пароль: </label> <input type="password" id="id_2" name="field_psw"></p>
+    <button>Log in</button>
+</form>
+</body>
+</html>
